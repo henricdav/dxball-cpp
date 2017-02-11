@@ -16,7 +16,7 @@ CCFLAGS += -std=c++14 -Wpedantic -Wall -Wextra -Werror #-Weffc++
 # CPPFLAGS += -I$(CODE)
 
 # Objektkodsmoduler som ingår i det kompletta spelet
-OBJECTS = dxball.o Game.o
+OBJECTS = dxball.o Game.o Shape.o Paddle.o Ball.o
 
 # Huvudmål - skapas med kommandot 'make' eller 'make playingwithfire'.
 dxball: $(OBJECTS) Makefile
@@ -32,6 +32,14 @@ dxball.o: dxball.cc
 Game.o: Game.h Game.cc
 	$(CCC) $(CPPFLAGS) $(CCFLAGS) -c Game.cc
 
+Shape.o: Shape.h Shape.cc
+	$(CCC) $(CPPFLAGS) $(CCFLAGS) -c Shape.cc
+
+Paddle.o: Paddle.h Paddle.cc
+	$(CCC) $(CPPFLAGS) $(CCFLAGS) -c Paddle.cc
+
+Ball.o: Ball.h Ball.cc
+	$(CCC) $(CPPFLAGS) $(CCFLAGS) -c Ball.cc
 
 # 'make clean' tar bort objektkodsfiler och 'core' (minnesdump).
 clean:

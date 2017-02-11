@@ -1,6 +1,10 @@
+#pragma once
 
 #include <SFML/graphics.hpp>
 #include <string>
+
+#include "Paddle.h"
+#include "Ball.h"
 
 class Game {
 public:
@@ -12,7 +16,12 @@ public:
     void run();
 
 private:
-    sf::RenderWindow window{};
+    void showShapes();
+    void movePaddle();
 
+
+    sf::RenderWindow window{};
+    Paddle paddle{};
+    Ball ball{};
 
 };
